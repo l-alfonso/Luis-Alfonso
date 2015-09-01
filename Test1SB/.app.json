@@ -3,11 +3,52 @@
   "views": [
     {
       "type": "view",
-      "components": [],
+      "components": [
+        {
+          "type": "authentication",
+          "name": "homeModel",
+          "dataProvider": "test1Bs",
+          "emailLabel": "Email",
+          "passwordLabel": "Password",
+          "signinLabel": "Sign In",
+          "signinRedirect": "dataListView",
+          "enableRegistration": true,
+          "gotoRegisterLabel": "Register",
+          "registerEmailLabel": "Email",
+          "registerPasswordLabel": "Password",
+          "registerNameLabel": "Name",
+          "registerLabel": "Register",
+          "registerRedirect": "home",
+          "gotoSigninLabel": "Sign In"
+        }
+      ],
       "name": "home",
       "title": "Home",
       "addToNavigation": true,
       "icon": "home"
+    },
+    {
+      "type": "view",
+      "components": [
+        {
+          "type": "list",
+          "name": "dataListViewModel",
+          "dataProvider": "test1Bs",
+          "collection": "dbo_Bills",
+          "headerField": "Title",
+          "subHeaderField": "Description",
+          "masterDetails": true,
+          "detailHeaderField": "Title",
+          "detailSubHeaderField": "Description",
+          "detailDescriptionField": "Amount",
+          "pullToRefresh": true,
+          "endlessScroll": false
+        }
+      ],
+      "name": "dataListView",
+      "title": "Data List",
+      "addToNavigation": true,
+      "icon": "organize"
     }
   ],
   "dataProviders": [
@@ -22,8 +63,7 @@
     }
   ],
   "name": "kendoUiMobileApp",
-  "navigation": "tabstrip",
+  "navigation": "drawer",
   "view": "home",
-  "transition": "slide",
   "skin": "flat"
 }
